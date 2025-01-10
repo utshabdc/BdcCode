@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Gloria+Hallelujah&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --border-radius: 10px;
+      }
+
+      body.prevent-background-scroll {
+        min-height: 100dvh;
+        overflow-y: hidden;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-image: radial-gradient(
+            circle at 65% 15%,
+            rgba(255, 255, 255, 0.01) 0%,
+            rgba(255, 255, 255, 0.01) 3%,
+            transparent 3%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 40% 33%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 3%,
+            transparent 3%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 9% 92%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 3%,
+            transparent 3%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 84% 0%,
+            rgba(255, 255, 255, 0.01) 0%,
+            rgba(255, 255, 255, 0.01) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 97% 94%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 13% 95%,
+            rgba(255, 255, 255, 0.02) 0%,
+            rgba(255, 255, 255, 0.02) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 77% 8%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 58% 0%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 76% 71%,
+            rgba(255, 255, 255, 0.02) 0%,
+            rgba(255, 255, 255, 0.02) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 88% 74%,
+            rgba(255, 255, 255, 0.01) 0%,
+            rgba(255, 255, 255, 0.01) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 74% 99%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 16% 56%,
+            rgba(255, 255, 255, 0.02) 0%,
+            rgba(255, 255, 255, 0.02) 7%,
+            transparent 7%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 25% 4%,
+            rgba(255, 255, 255, 0.02) 0%,
+            rgba(255, 255, 255, 0.02) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 54% 83%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 70% 60%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 23% 73%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 63% 81%,
+            rgba(255, 255, 255, 0.01) 0%,
+            rgba(255, 255, 255, 0.01) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 56% 58%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 64% 68%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          radial-gradient(
+            circle at 52% 48%,
+            rgba(255, 255, 255, 0.01) 0%,
+            rgba(255, 255, 255, 0.01) 5%,
+            transparent 5%,
+            transparent 100%
+          ),
+          linear-gradient(0deg, rgb(18, 23, 42), rgb(13, 18, 34));
+        background-repeat: no-repeat;
+        overflow-x: hidden;
+      }
+
+      /* INTRO */
+
+      .intro {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        gap: 30px;
+        min-height: 100vh;
+        width: 100%;
+        padding: 80px 100px;
+      }
+
+      .intro-content {
+        padding-right: 100px;
+      }
+
+      .intro-content h1 {
+        color: transparent;
+        font-family: "Gloria Hallelujah", cursive;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.4;
+        animation: fade-in-out 12s linear infinite;
+      }
+
+      @keyframes fade-in-out {
+        0% {
+          color: #fff;
+          filter: hue-rotate(0deg);
+          text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+        }
+
+        30%,
+        70% {
+          color: #fff;
+          filter: hue-rotate(360deg);
+          text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+        }
+
+        100% {
+          color: transparent;
+          box-shadow: none;
+          filter: hue-rotate(0deg);
+        }
+      }
+
+      .collage-art {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+      }
+
+      .intro-content p {
+        font-family: inherit;
+        font-size: clamp(0.8rem, 4vw, 1.1rem);
+        color: #94a3b8;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 30px 0 50px;
+        text-align: justify;
+      }
+
+      .btn {
+        padding: 1rem 4rem;
+        font-size: clamp(0.8rem, 4vw, 1rem);
+        font-weight: 600;
+        background: transparent;
+        color: #18d25f;
+        border-radius: 0.5rem;
+        border-bottom: 2px solid #18d25f;
+        border-right: 2px solid #18d25f;
+        border-top: 2px solid rgb(9, 199, 251, 0.7);
+        border-left: 2px solid rgb(9, 199, 251, 0.7);
+        transition-duration: 1s;
+        transition-property: border-top, border-left, border-bottom,
+          border-right, box-shadow;
+        cursor: pointer;
+        outline-color: transparent;
+        text-decoration: underline;
+      }
+
+      .btn:hover {
+        border-top: 2px solid #18d25f;
+        border-left: 2px solid #18d25f;
+        border-bottom: 2px solid rgb(9, 199, 251, 0.7);
+        border-right: 2px solid rgb(9, 199, 251, 0.7);
+        box-shadow: rgb(9, 199, 251, 0.4) 5px 5px,
+          rgb(9, 199, 251, 0.3) 10px 10px, rgb(9, 199, 251, 0.2) 15px 15px;
+      }
+
+      .card-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 200px;
+        aspect-ratio: 3/4;
+        background: linear-gradient(#fff2, transparent);
+        box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius);
+        margin: 0 -45px;
+        backdrop-filter: blur(10px);
+        transform: rotate(calc(var(--r) * 1deg))
+          translateY(calc(var(--y) * 1px)) translateX(calc(var(--x) * -1px));
+        transition: all 0.8s linear;
+      }
+
+      .card img,
+      .item img {
+        width: 90%;
+        height: 90%;
+      }
+
+      .item img {
+        object-fit: cover;
+      }
+
+      .card-container:hover .card {
+        margin: 0 10px;
+        transform: rotate(0deg) translateY(0) translateX(0);
+      }
+
+      /* FEATURED */
+
+      .featured {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 100px 80px;
+      }
+
+      .gradient-line {
+        display: flex;
+        justify-content: center;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background-color: #09c7fb;
+        background-image: linear-gradient(
+          90deg,
+          rgb(9, 199, 251, 0.7) 0%,
+          rgb(147, 251, 157, 0.7) 65%
+        );
+        margin-bottom: 35px;
+      }
+
+      .featured h1 {
+        font-family: "Caveat", cursive;
+        font-size: clamp(3rem, 5vw, 4rem);
+        font-weight: 600;
+        color: #fff;
+        text-shadow: 0 0 10px #18d25f, 0 0 20px #18d25f;
+        margin-bottom: 60px;
+      }
+
+      .grid-area {
+        display: grid;
+        grid-template-columns: repeat(8, 100px);
+        grid-template-rows: repeat(7, 100px);
+        gap: 20px;
+      }
+
+      .item {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(#fff2, transparent);
+        box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius);
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+      }
+
+      .art-one {
+        grid-area: 1 / 1 / 3 / 3;
+      }
+
+      .art-two {
+        grid-area: 1 / 3 / 4 / 5;
+      }
+
+      .art-three {
+        grid-area: 1 / 5 / 3 / 7;
+      }
+
+      .art-four {
+        grid-area: 1 / 7 / 3 / 9;
+      }
+
+      .art-six {
+        grid-area: 4 / 3 / 6 / 5;
+      }
+
+      .art-five {
+        grid-area: 3 / 1 / 5 / 3;
+      }
+
+      .art-seven {
+        grid-area: 3 / 5 / 5 / 7;
+      }
+
+      .art-eight {
+        grid-area: 3 / 7 / 6 / 9;
+      }
+
+      .art-nine {
+        grid-area: 5 / 1 / 8 / 3;
+      }
+
+      .art-ten {
+        grid-area: 6 / 3 / 8 / 5;
+      }
+
+      .art-eleven {
+        grid-area: 5 / 5 / 8 / 7;
+      }
+
+      .art-twelve {
+        grid-area: 6 / 7 / 8 / 9;
+      }
+
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 0 10px;
+        z-index: 20;
+        animation: openLightbox 0.6s ease-in-out 1 normal;
+      }
+
+      @keyframes openLightbox {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .img-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background: rgba(46, 46, 46, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        color: #fff;
+        z-index: 30;
+      }
+
+      .img-container p {
+        text-align: center;
+        font-size: clamp(0.9rem, 4vw, 1.25rem);
+        font-weight: 500;
+        padding: 15px 20px;
+        color: #fff;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+
+      .img-container img {
+        max-width: 100%;
+        width: 600px;
+        aspect-ratio: 1/1;
+        border-radius: 0 0 12px 12px;
+        object-fit: cover;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+
+      .slide {
+        position: absolute;
+        top: 50%;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        background: rgba(46, 46, 46, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        color: #fff;
+        font-size: 2rem;
+        padding: 20px;
+        transition: all 0.5s;
+        cursor: pointer;
+        z-index: 40;
+      }
+
+      .slide:hover {
+        background: rgba(15, 14, 28, 0.9);
+      }
+
+      .prev {
+        left: 14%;
+      }
+
+      .next {
+        right: 14%;
+      }
+
+      @media (max-width: 1400px) {
+        .intro {
+          gap: 30px;
+          padding: 80px 70px;
+        }
+
+        .intro-content {
+          padding-right: 70px;
+        }
+
+        .btn {
+          padding: 1rem 3rem;
+        }
+      }
+
+      @media (max-width: 975px) {
+        .intro {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(2, 1fr);
+          gap: 30px;
+          grid-template-areas:
+            "card-container"
+            "intro-content";
+          padding: 40px 60px 30px;
+        }
+
+        .intro-content {
+          grid-area: intro-content;
+          padding-right: 0;
+          text-align: center;
+        }
+
+        .card-container {
+          grid-area: card-container;
+        }
+
+        .card {
+          max-width: 150px;
+        }
+
+        .featured {
+          padding: 60px 70px 80px;
+        }
+
+        .grid-area {
+          display: grid;
+          grid-template-columns: repeat(6, 100px);
+          grid-template-rows: repeat(9, 100px);
+          gap: 20px;
+          margin: 40px 30px 60px;
+        }
+
+        .art-four {
+          grid-area: 8 / 1 / 10 / 3;
+        }
+
+        .art-eight {
+          grid-area: 8 / 3 / 10 / 5;
+        }
+
+        .art-twelve {
+          grid-area: 8 / 5 / 10 / 7;
+        }
+      }
+
+      @media (max-width: 750px) {
+        .grid-area {
+          grid-template-columns: repeat(6, 90px);
+          grid-template-rows: repeat(9, 90px);
+        }
+
+        .featured {
+          padding: 60px 50px 80px;
+        }
+
+        .slide {
+          font-size: 2rem;
+          padding: 14px;
+        }
+
+        .prev {
+          left: 5%;
+        }
+
+        .next {
+          right: 5%;
+        }
+      }
+
+      @media (max-width: 670px) {
+        .grid-area {
+          grid-template-columns: repeat(4, 110px);
+          grid-template-rows: repeat(14, 110px);
+        }
+
+        .art-three {
+          grid-area: 11 / 3 / 13 / 5;
+        }
+
+        .art-four {
+          grid-area: 8 / 1 / 10 / 3;
+        }
+
+        .art-seven {
+          grid-area: 13 / 3 / 15 / 5;
+        }
+
+        .art-eight {
+          grid-area: 8 / 3 / 11 / 5;
+        }
+
+        .art-eleven {
+          grid-area: 12 / 1 / 15 / 3;
+        }
+
+        .art-twelve {
+          grid-area: 10 / 1 / 12 / 3;
+        }
+      }
+
+      @media (max-width: 530px) {
+        .intro {
+          grid-template-rows: 45% 45%;
+          gap: 20px;
+          padding: 10px 60px 60px;
+        }
+
+        .intro-content {
+          margin-top: 90px;
+        }
+
+        .grid-area {
+          grid-template-columns: repeat(4, 90px);
+          grid-template-rows: repeat(14, 90px);
+        }
+      }
+
+      @media (max-width: 460px) {
+        .intro {
+          padding: 10px 30px 60px;
+        }
+
+        .card {
+          max-width: 130px;
+        }
+
+        .grid-area {
+          grid-template-columns: repeat(4, 70px);
+          grid-template-rows: repeat(14, 70px);
+        }
+
+        .featured {
+          padding: 60px 40px 80px;
+        }
+
+        .featured h1 {
+          margin-bottom: 0;
+        }
+
+        .img-container p {
+          padding: 10px;
+        }
+
+        .slide {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="intro">
+      <div class="intro-content">
+        <h1 class="title">AI: Your Creative Partner</h1>
+        <p class="description">
+          <span class="collage-art">Collage Art</span> lets you weave magic by
+          combining different elements – think photographs, illustrations,
+          textures, and patterns – into a visual symphony. Push the boundaries
+          of your artistic expression and create a masterpiece with the help of
+          AI! Join this artistic journey, where your imagination meets the
+          limitless possibilities of AI.
+        </p>
+        <a href="#featured" class="btn">Join</a>
+      </div>
+
+      <div class="card-container">
+        <div style="--r: -15; --y: 40; --x: 50" class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/585555c4-71c1-4c4a-b551-a2895047fbba"
+            alt=""
+          />
+        </div>
+        <div style="--r: 5; --y: -30; --x: 30" class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/5ede54b2-dfec-4f5e-81b1-df8089481b08"
+            alt=""
+          />
+        </div>
+        <div style="--r: 15; --y: 50; --x: 0" class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4548f9dd-e67e-4585-8a2d-821c40e3471b"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="featured" id="featured">
+      <div class="gradient-line"></div>
+      <h1 class="featured-title">Featured</h1>
+      <div class="grid-area">
+        <div class="item art-one">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/a7081089-be4b-42e3-bfe9-691dbac43603"
+            alt="A Good Boy"
+          />
+        </div>
+
+        <div class="item art-two">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/bd3d4b31-03c6-47a2-9d1c-c355cada1512"
+            alt="City Life"
+          />
+        </div>
+
+        <div class="item art-three">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2e280db7-6bb2-4acb-8aa0-c23d4906a1d5"
+            alt="An Ode to Mushrooms"
+          />
+        </div>
+
+        <div class="item art-four">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e910c96c-eaed-4291-937d-b38d7cd0f0db"
+            alt="A Woman in Complexity"
+          />
+        </div>
+
+        <div class="item art-five">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/8daeb10c-87c4-4b37-baa1-43559718ed05"
+            alt="Steampunk"
+          />
+        </div>
+
+        <div class="item art-six">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/533fc7a4-e1f1-4683-9bcd-1f1386552a67"
+            alt="Dragon in Silks"
+          />
+        </div>
+
+        <div class="item art-seven">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/14efe3d5-940b-47d7-b9d3-c9b882ff905f"
+            alt="Cut and Paste Face"
+          />
+        </div>
+
+        <div class="item art-eight">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/037f6971-f851-48fa-b793-b8eac9b39865"
+            alt="Dolphins in the Sea"
+          />
+        </div>
+
+        <div class="item art-nine">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/5a118a78-ca7c-4878-995d-49ceb06c754a"
+            alt="The Raven's Song"
+          />
+        </div>
+
+        <div class="item art-ten">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/bc8cdd3a-784e-43ff-9363-661ee9becab2"
+            alt="Haunted House"
+          />
+        </div>
+
+        <div class="item art-eleven">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ef40ae8d-3ece-4d33-8974-9e16ade79784"
+            alt="The World of Butterflies"
+          />
+        </div>
+
+        <div class="item art-twelve">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/7ce32896-2c31-4e46-b6f7-7dc76916aafb"
+            alt="Lost in Thought"
+          />
+        </div>
+      </div>
+
+      <div class="lightbox">
+        <div class="slide prev">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="img-container">
+          <p>title</p>
+          <img src="sample.jpg" alt="" />
+        </div>
+        <div class="slide next">
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+    </section>
+    <script>
+      // ScrollReveal JS
+
+      ScrollReveal({ distance: "50px" });
+
+      ScrollReveal().reveal(".title", {
+        delay: 200,
+        easing: "ease-in",
+        origin: "top",
+        distance: "70px",
+        duration: 900,
+      });
+
+      ScrollReveal().reveal(".description", {
+        delay: 1000,
+        easing: "ease-in",
+        origin: "top",
+        distance: "30px",
+        duration: 1000,
+      });
+
+      ScrollReveal().reveal(".btn", {
+        delay: 2000,
+        easing: "ease-in-out",
+        duration: 1000,
+      });
+
+      ScrollReveal().reveal(".card-container", {
+        delay: 400,
+        easing: "ease-in-out",
+        origin: "right",
+        distance: "800px",
+        duration: 2500,
+      });
+
+      ScrollReveal().reveal(".gradient-line", {
+        delay: 200,
+        easing: "ease",
+        origin: "left",
+        distance: "1800px",
+        duration: 3600,
+      });
+
+      ScrollReveal().reveal(".featured-title", {
+        delay: 400,
+        easing: "ease-in",
+        origin: "right",
+        distance: "200px",
+        duration: 1400,
+      });
+
+      ScrollReveal().reveal(".item", {
+        delay: 1200,
+        interval: 200,
+        origin: "bottom",
+        easing: "ease-in-out",
+        duration: 400,
+      });
+
+      // Lightbox
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const galleryImages = document.querySelectorAll(".item img");
+        const lightbox = document.querySelector(".lightbox");
+        const lightboxImage = document.querySelector(".img-container img");
+        const lightboxTitle = document.querySelector(".img-container p");
+        const prevBtn = document.querySelector(".prev");
+        const nextBtn = document.querySelector(".next");
+        const body = document.querySelector("body");
+
+        let currentIndex;
+
+        galleryImages.forEach((img, index) => {
+          img.addEventListener("click", function () {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.style.display = "flex";
+            body.classList.add("prevent-background-scroll");
+          });
+        });
+
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) {
+            lightbox.style.display = "none";
+            body.classList.remove("prevent-background-scroll");
+          }
+        });
+
+        prevBtn.addEventListener("click", function () {
+          currentIndex =
+            (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+          updateLightbox();
+        });
+
+        nextBtn.addEventListener("click", function () {
+          currentIndex = (currentIndex + 1) % galleryImages.length;
+          updateLightbox();
+        });
+
+        function updateLightbox() {
+          const currentImage = galleryImages[currentIndex];
+          lightboxImage.src = currentImage.src;
+          lightboxTitle.textContent = currentImage.alt;
+        }
+      });
+    </script>
+  </body>
+</html>
