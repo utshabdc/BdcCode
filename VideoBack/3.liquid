@@ -1,0 +1,313 @@
+{% schema %}
+{
+  "name": "Video Hero Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Turn Moments Into Music"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Give the unforgettable gift of a custom song for any occasion. Thoughtfully crafted, expertly delivered with soul, and designed to capture memories that last forever."
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Background Video URL",
+      "info": "Supported format: MP4"
+    },
+    {
+      "type": "header",
+      "content": "Features"
+    },
+    {
+      "type": "text",
+      "id": "feature1_text",
+      "label": "Feature 1 Text",
+      "default": "Delivered within 72 hours"
+    },
+    {
+      "type": "text",
+      "id": "feature2_text",
+      "label": "Feature 2 Text",
+      "default": "One of a kind"
+    },
+    {
+      "type": "text",
+      "id": "feature3_text",
+      "label": "Feature 3 Text",
+      "default": "100% Satisfaction Guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial"
+    },
+    {
+      "type": "image_picker",
+      "id": "testimonial_image",
+      "label": "Testimonial Author Image"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_text",
+      "label": "Testimonial Text",
+      "default": "I was blown away! The song turned out better than I could have ever imagined! The process was so easy and her voice was everything! Highly recommend!"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_author",
+      "label": "Testimonial Author",
+      "default": "- Emily, 33"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Create Your Song"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Hero Section",
+      "category": "Video"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.video-hero {
+  width: 100%;
+  /* height: 100vh; */
+  height:70vh;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-hero__background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.video-hero__content {
+  margin-top: 150px;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.video-hero__heading {
+  /* font-size: clamp(2.5rem, 5vw, 5rem); */
+  font-size:30px;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color:white;
+}
+
+.video-hero__description {
+  /* font-size: clamp(1rem, 1.2vw, 1.2rem); */
+  font-size:10px;
+  /* margin-bottom: 2rem; */
+  line-height: 1.6;
+}
+
+.video-hero__stars {
+  color: #FFD700;
+  /* font-size: 1.5rem; */
+  margin: 1rem 0;
+}
+
+.video-hero__features {
+  display: flex;
+  
+  justify-content: center;
+  gap: 2rem;
+  margin: 0.6rem 0;
+  flex-wrap: wrap;
+}
+
+.video-hero__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.video-hero__feature-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-hero__feature-text {
+  /* font-size: 0.875rem; */
+  font-size:10px;
+}
+
+.video-hero__button {
+  background-color: #FF68B5;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0.8rem 0;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.video-hero__button:hover {
+  background-color: #D81B60;
+}
+
+.video-hero__testimonial {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0.4rem auto 0;
+}
+
+.video-hero__testimonial-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.video-hero__testimonial-content {
+  text-align: left;
+  font-size: 0.5rem;
+}
+
+.video-hero__testimonial-author {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+@media screen and (min-width: 769px) {
+  .video-hero {
+    display: none;
+}
+}
+@media screen and (max-width: 768px) {
+  .video-hero__features {
+    /* flex-direction: column; */
+    gap: 1rem;
+  }
+
+  .video-hero__testimonial {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .video-hero__testimonial-content {
+    text-align: center;
+  }
+}
+</style>
+
+<div class="video-hero">
+  {% if section.settings.video_url != blank %}
+    <video 
+      class="video-hero__background"
+      autoplay 
+      loop 
+      muted 
+      playsinline
+    >
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+    </video>
+  {% endif %}
+
+  <div class="video-hero__content">
+    {% if section.settings.heading != blank %}
+      <h2 class="video-hero__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="video-hero__description">{{ section.settings.description }}</p>
+    {% endif %}
+
+    <div class="video-hero__stars">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+
+    <div class="video-hero__features">
+      <div class="video-hero__feature">
+        <i class="fa-solid fa-truck video-hero__feature-icon"></i>
+        <p class="video-hero__feature-text">{{ section.settings.feature1_text }}</p>
+      </div>
+      <div class="video-hero__feature">
+        <i class="fa-solid fa-music video-hero__feature-icon"></i>
+        <p class="video-hero__feature-text">{{ section.settings.feature2_text }}</p>
+      </div>
+      <div class="video-hero__feature">
+        <i class="fa-solid fa-check video-hero__feature-icon"></i>
+        <p class="video-hero__feature-text">{{ section.settings.feature3_text }}</p>
+      </div>
+    </div>
+
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link }}" class="video-hero__button">
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+
+    <div class="video-hero__testimonial">
+      {% if section.settings.testimonial_image != blank %}
+        <img 
+          src="{{ section.settings.testimonial_image | img_url: '100x100', crop: 'center' }}"
+          alt="Testimonial author"
+          class="video-hero__testimonial-image"
+          loading="lazy"
+        >
+      {% endif %}
+      <div class="video-hero__testimonial-content">
+        {% if section.settings.testimonial_text != blank %}
+          <p>{{ section.settings.testimonial_text }}</p>
+        {% endif %}
+        {% if section.settings.testimonial_author != blank %}
+          <p class="video-hero__testimonial-author">{{ section.settings.testimonial_author }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <script src="https://kit.fontawesome.com/2847cbaade.js" crossorigin="anonymous"></script> -->
