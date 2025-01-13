@@ -1,0 +1,181 @@
+{% schema %}
+{
+  "name": "Flip Cards",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "range",
+      "id": "top_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "flip_card",
+      "name": "Flip Card",
+      "settings": [
+        {
+          "type": "html",
+          "id": "front_title",
+          "label": "Front Title",
+          "default": "<p>FLIP CARD</p>"
+        },
+        {
+          "type": "html",
+          "id": "front_content",
+          "label": "Front Content",
+          "default": "<p>Hover Me</p>"
+        },
+        {
+          "type": "html",
+          "id": "back_title",
+          "label": "Back Title",
+          "default": "<p>BACK</p>"
+        },
+        {
+          "type": "html",
+          "id": "back_content",
+          "label": "Back Content",
+          "default": "<p>Leave Me</p>"
+        },
+        {
+          "type": "color_background",
+          "id": "front_background",
+          "label": "Front Background",
+          "default": "linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%, rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%)"
+        },
+        {
+          "type": "color",
+          "id": "front_text_color",
+          "label": "Front Text Color",
+          "default": "#FF7F50"
+        },
+        {
+          "type": "color_background",
+          "id": "back_background",
+          "label": "Back Background",
+          "default": "linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%, bisque 40%, rgb(255, 185, 160) 78%)"
+        },
+        {
+          "type": "color",
+          "id": "back_text_color",
+          "label": "Back Text Color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flip Cards",
+      "blocks": [
+        {
+          "type": "flip_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.top_padding }}px;
+    padding-bottom: {{ section.settings.bottom_padding }}px;
+  }
+
+  .flip-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 450px;
+    height: 254px;
+    perspective: 1000px;
+    font-family: sans-serif;
+  }
+
+  .title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding:20px;
+  }
+
+  .flip-card-back {
+        background-color: black !important;
+    color: white !important;
+    transform: rotateY(180deg);
+  }
+  @media (max-width:767px){
+   .flip-card {
+    max-width: 90%; 
+    margin:auto;
+}
+</style>
+
+<div class="flip-cards-container">
+  {% for block in section.blocks %}
+    {% if block.type == 'flip_card' %}
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front" style="background: {{ block.settings.front_background }}; color: {{ block.settings.front_text_color }};">
+            <div class="title">{{ block.settings.front_title }}</div>
+            {{ block.settings.front_content }}
+          </div>
+          <div class="flip-card-back" style="background: {{ block.settings.back_background }}; color: {{ block.settings.back_text_color }};">
+            <div class="title">{{ block.settings.back_title }}</div>
+            {{ block.settings.back_content }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
