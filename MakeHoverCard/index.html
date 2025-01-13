@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover Card</title>
+    <style>
+      .flex {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .card {
+        background-color: #b6d0c3;
+        border-radius: 10px;
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, background-color 0.3s, color 0.3s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        background-color: black;
+        color: white;
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        transition: color 0.3s;
+      }
+
+      .card:hover h2 {
+        color: white;
+      }
+
+      .card p {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+        transition: color 0.3s;
+      }
+
+      .card:hover p {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+   <div class="flex"> <div class="card" id="card">
+    <h2 id="card-title">AFTERSUN RECOVERY</h2>
+    <p id="card-content">
+      With only the purest compounds to penetrate and restore the natural
+      barrier of the skin. Free of harsh perfumes or chemicals, our aftersun
+      product is gentle enough to use on both, body and face.
+    </p>
+  </div></div>
+    <script>
+      const card = document.querySelector(".card");
+      const title = document.getElementById("card-title");
+      const content = document.getElementById("card-content");
+
+      card.addEventListener("mouseover", () => {
+        title.textContent = "HELLO";
+        content.textContent = "HELLO BD";
+      });
+
+      card.addEventListener("mouseout", () => {
+        title.textContent = "AFTERSUN RECOVERY";
+        content.textContent =
+          "With only the purest compounds to penetrate and restore the natural barrier of the skin. Free of harsh perfumes or chemicals, our aftersun product is gentle enough to use on both, body and face.";
+      });
+    </script>
+  </body>
+</html>
