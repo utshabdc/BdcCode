@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Development Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .cody {
+            min-height: 100vh;
+            /* background: linear-gradient(135deg, #e6f0ff 0%, #f0e6ff 100%); */
+            background-color: #17171D;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            color: #ffff;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cards {
+          display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            /* background: rgba(255, 255, 255, 0.7); */
+            background-color: #00000062;
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            flex: 1;
+            min-width: 280px;
+            max-width: 380px;
+        }
+
+        .icon {
+            background: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .card h2 {
+            color: #fff;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #fff;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .cards {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="cody">
+    <div class="container">
+        <div class="header">
+            <h1>Spend extra time on<br>marketing development</h1>
+            <p>Allocating extra time to marketing development is critical to the success of your business.</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 7h-9M20 11h-9M20 15h-9M3 7h2v2H3zM3 11h2v2H3zM3 15h2v2H3z"/>
+                    </svg>
+                </div>
+                <h2>Unrivaled quality</h2>
+                <p>Improve your sales performance with internationally compliant and reliable data. One million consumers have put their trust in us.</p>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                </div>
+                <h2>Prospect stronger</h2>
+                <p>Enhance your marketing funnel with quality leads based on buyer interest data.</p>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <h2>Ramp reps faster</h2>
+                <p>In just 10 minutes, you can improve your entire marketing at scale with AI technology</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- <body>
+    <div class="cody">
+      <div class="container">
+        <div class="header">
+          <h1>{% inline_text field="text_field" value="{{ module.text_field }}" %}</h1>
+          <p>{% inline_rich_text field="rich_text" value="{{ module.rich_text }}" %}</p>
+        </div>
+        <div class="cards">
+          <!-- Loop through the field group -->
+          <!-- {% for item in module.field_group %}
+          <div class="card">
+            <div class="icon">
+              {% icon
+                name="{{ item.icon_field.name }}"
+                style="{{ item.icon_field.type }}"
+                unicode="{{ item.icon_field.unicode }}"
+                icon_set="{{ item.icon_field.icon_set }}"
+              %}
+            </div>
+            <h2>{{ item.content_heading }}</h2>
+            <p>{{ item.content_desc }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  <!-- </body> --> 
