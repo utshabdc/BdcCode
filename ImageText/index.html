@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroller Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .image-container {
+            position: relative;
+            aspect-ratio: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* .image-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(186, 230, 253, 0.8);
+            border-radius: 16px;
+        } */
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 2;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .title {
+            font-size: 2.25rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .title span {
+            color: #0ea5e9;
+        }
+
+        .subtitle {
+            color: #4b5563;
+            margin-top: 8px;
+        }
+
+        .features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .features li {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .features li::before {
+            content: "•";
+            color: #0ea5e9;
+        }
+
+        .price {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #0ea5e9;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: transparent;
+            color: #111827;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #f3f4f6;
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-grid">
+            <div class="image-container">
+                <div class="image-overlay"></div>
+                <img 
+                    src="download (51).png" 
+                    alt="Stokke height adjustable baby stroller" 
+                    class="product-image"
+                >
+            </div>
+            
+            <div class="content">
+                <div>
+                    <h1 class="title">
+                        Height <span>adjustable</span> - To bring your baby closer to you
+                    </h1>
+                    <p class="subtitle">
+                        Stokke's signature height adjustable baby stroller
+                    </p>
+                </div>
+                
+                <ul class="features">
+                    <li>Height adjustable to raise your baby higher for interaction</li>
+                    <li>Suitable from newborn with optional Stokke Xplory Carry Bassinet</li>
+                    <li>3 parent- and 2 forward-facing stroller seating positions</li>
+                </ul>
+                
+                <div>
+                    <p class="price">$59.92</p>
+                    <a href="#" class="button">
+                        View Product
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
