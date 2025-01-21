@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Grid with Hover Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .grid-item:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .title {
+            color: white;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="grid">
+            <div class="grid-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Qod1NL41EEzDuNFmwH6tT7j8a7WtX.png" alt="Wild Plants">
+                <div class="overlay">
+                    <h2 class="title">Wild Plants</h2>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Qod1NL41EEzDuNFmwH6tT7j8a7WtX.png" alt="Handcrafted Terrariums">
+                <div class="overlay">
+                    <h2 class="title">Handcrafted Terrariums</h2>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Qod1NL41EEzDuNFmwH6tT7j8a7WtX.png" alt="Interiors">
+                <div class="overlay">
+                    <h2 class="title">Interiors</h2>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Qod1NL41EEzDuNFmwH6tT7j8a7WtX.png" alt="Vintage Vessels">
+                <div class="overlay">
+                    <h2 class="title">Vintage Vessels</h2>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Qod1NL41EEzDuNFmwH6tT7j8a7WtX.png" alt="Bespoke Pottery">
+                <div class="overlay">
+                    <h2 class="title">Bespoke Pottery</h2>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Qod1NL41EEzDuNFmwH6tT7j8a7WtX.png" alt="Basket Baskets">
+                <div class="overlay">
+                    <h2 class="title">Basket Baskets</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
