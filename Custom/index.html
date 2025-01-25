@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <!-- Fontawesome CDN  -->
     <link
       rel="stylesheet"
@@ -12,12 +13,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- font cdn  -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
     <script
       src="https://kit.fontawesome.com/2847cbaade.js"
       crossorigin="anonymous"
     ></script>
     <style>
+      body {
+        font-family: "Roboto", serif;
+        background-color: #fffff0;
+      }
       .parent-section {
+        background-color: #fffff0;
+        z-index: -10;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -26,17 +37,18 @@
         position: relative;
       }
       .backImage {
-        background-image: url(./1.png);
+        /* This background image will be editable from customize side */
+        background-image: url(./assets/1.png);
         background-size: cover;
         background-position: center;
         height: 100%;
-        width: 90%;
+        width: 95%;
         position: absolute;
         z-index: -1;
         border-radius: 20px;
       }
       .content-one {
-        background-color: white;
+        background-color: #fffff0;
         height: 40px;
         width: 200px;
         bottom: 0;
@@ -46,14 +58,17 @@
       }
       .social-icons {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
+        gap: 10px;
         height: 100%;
       }
       .social-icons i {
-        font-size: 25px;
-        border: 1px solid black;
-        padding: 5px;
+        cursor: pointer;
+        color: #58677d;
+        font-size: 20px;
+        border: 1px solid #58677d;
+        padding: 9px;
         border-radius: 50%;
       }
       .content-one::after {
@@ -78,6 +93,105 @@
         border-radius: 0px 0px 0px 20px;
         box-shadow: 0px 20px white;
       }
+      .content-two {
+        padding: 20px;
+        height: 40px;
+        width: 50%;
+        bottom: 0;
+        position: absolute;
+        /* border-top-right-radius: 20px; */
+        border-top-left-radius: 20px;
+        right: 0;
+        background-color: #fffff0;
+        display: inline-flex;
+        align-items: center;
+      }
+      .content-two::after {
+        content: "";
+        position: absolute;
+        background: transparent;
+        height: 50px;
+        width: 50px;
+        top: -50px;
+        right: 0px;
+        border-radius: 0px 0px 20px 0px;
+        box-shadow: 3px 14px white;
+      }
+      .content-two::before {
+        content: "";
+        position: absolute;
+        background: transparent;
+        height: 50px;
+        width: 50px;
+        bottom: 0;
+        left: -50px;
+        border-radius: 0px 0px 20px 0px;
+        box-shadow: 0px 17px white;
+      }
+      .content-three {
+        position: absolute;
+        padding: 30px;
+        height: max-content;
+        width: max-content;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        border-radius: 20px;
+        bottom: 107px;
+        right: 29px;
+      }
+      .content-three-flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .icon-spot2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        /* border: 1px solid #afafff; */
+        background-color: #d7adff57;
+        width: 30px;
+        height: 30px;
+        padding: 15px;
+        border-radius: 50%;
+      }
+      .avatar {
+        display: flex;
+        align-items: center;
+      }
+      .avatar img {
+        height: 40px;
+        width: 40px;
+        margin-left: -10px;
+      }
+      .avatar .digit-plus {
+        background-color: #58677d3f;
+        color: #58677d;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -10px;
+      }
+      .title-desc {
+        margin-left: 20px;
+      }
+      .title-desc p {
+        margin-top: -12px;
+        color: #58677d;
+      }
+      .ratin-star {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
     </style>
   </head>
   <body>
@@ -85,13 +199,79 @@
       <div class="backImage">
         <div class="content-one">
           <div class="social-icons">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-facebook"></i>
+            <!-- here all anchor tag link will be editble from customize side -->
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
           </div>
         </div>
-        <div class="content-two"></div>
+        <div class="content-two">
+          <div class="avatar">
+            <img src="assets/Avatar.png" alt="" />
+            <img src="assets/Avatar2.png" alt="" />
+            <img src="assets/Avatar3.png" alt="" />
+            <div class="digit-plus">99+</div>
+          </div>
+          <div class="title-desc">
+            <h3>3.1m</h3>
+            <p>Satisfied Customers</p>
+          </div>
+        </div>
+        <div class="content-three">
+          <div class="text-content">
+            <!-- this title will editable from customize side  -->
+            <h3>Daily Growth <br />Grantee</h3>
+          </div>
+          <div class="content-three-flex">
+            <div class="icon-spot1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="88"
+                height="29"
+                viewBox="0 0 88 29"
+                fill="none"
+              >
+                <path
+                  d="M1.59961 21.0927H10.6316C10.9448 21.0927 11.2257 20.9002 11.3386 20.6081L13.4707 15.0917C13.7377 14.4011 14.7347 14.4637 14.9132 15.1822L16.5204 21.6504C16.6956 22.3554 17.6663 22.4339 17.9526 21.7663L26.1879 2.55822C26.4736 1.89197 27.4417 1.96838 27.6193 2.6712L33.5504 26.1429C33.6978 26.7265 34.4339 26.9136 34.8421 26.4713L39.0111 21.9541C39.3841 21.5499 40.0499 21.6651 40.2654 22.1711L41.6891 25.5133C41.9697 26.1723 42.9235 26.1102 43.1163 25.4204L46.1447 14.5867C46.3252 13.9409 47.1939 13.8304 47.5303 14.4106L52.2893 22.619C52.5923 23.1415 53.3549 23.117 53.6237 22.5761L57.9838 13.8026C58.2148 13.3378 58.8341 13.2375 59.2 13.6056L66.4193 20.8691C66.5615 21.0122 66.755 21.0927 66.9568 21.0927H86.1996"
+                  stroke="url(#paint0_linear_28051_8001)"
+                  stroke-width="2.7"
+                  stroke-linecap="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_28051_8001"
+                    x1="3.41719"
+                    y1="26.5995"
+                    x2="51.2723"
+                    y2="-28.3458"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#5050FA" />
+                    <stop offset="1" stop-color="#AFAFFF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="icon-spot2">
+              <div class="ratin-star">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="18"
+                  viewBox="0 0 17 18"
+                  fill="none"
+                >
+                  <path
+                    d="M6.178 4.55017C7.03298 3.0164 7.46048 2.24951 8.09961 2.24951C8.73874 2.24951 9.16624 3.0164 10.0212 4.55016L10.2424 4.94697C10.4854 5.38282 10.6069 5.60074 10.7963 5.74453C10.9857 5.88832 11.2216 5.94169 11.6934 6.04844L12.1229 6.14563C13.7832 6.52129 14.6133 6.70911 14.8109 7.34423C15.0084 7.97935 14.4424 8.64113 13.3105 9.96471L13.0177 10.3071C12.6961 10.6833 12.5353 10.8713 12.4629 11.104C12.3906 11.3366 12.4149 11.5875 12.4635 12.0894L12.5078 12.5462C12.6789 14.3122 12.7645 15.1951 12.2474 15.5877C11.7303 15.9802 10.9531 15.6223 9.39853 14.9066L8.99636 14.7214C8.55461 14.518 8.33374 14.4163 8.09961 14.4163C7.86548 14.4163 7.64461 14.518 7.20286 14.7214L6.80069 14.9066C5.24617 15.6223 4.4689 15.9802 3.95183 15.5877C3.43477 15.1951 3.52033 14.3122 3.69145 12.5462L3.73572 12.0894C3.78435 11.5875 3.80867 11.3366 3.73632 11.104C3.66397 10.8713 3.50315 10.6833 3.1815 10.3071L2.88868 9.96471C1.7568 8.64113 1.19087 7.97935 1.38837 7.34423C1.58587 6.70911 2.41601 6.52129 4.0763 6.14563L4.50583 6.04844C4.97763 5.9417 5.21353 5.88832 5.40295 5.74453C5.59236 5.60074 5.71384 5.38282 5.9568 4.94697L6.178 4.55017Z"
+                    fill="#921FFF"
+                  />
+                </svg>
+              </div>
+              <div>4.0</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </body>

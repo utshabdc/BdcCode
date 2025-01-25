@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keep Walking Landing Page</title>
+    <style>
+      .mody {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        min-height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .image-section {
+        flex: 1;
+        background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O6FxF86Xr2pCgQAIViw31gFSJoWDl6.png");
+        background-size: cover;
+        background-position: left center;
+        position: relative;
+      }
+
+      .content-section {
+        flex: 1;
+        background-color: #faf7f2;
+        padding: 6rem 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        letter-spacing: 0.05em;
+      }
+
+      .description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+      }
+
+      .discover-button {
+        display: inline-block;
+        padding: 1rem 3rem;
+        border: 2px solid #000;
+        background: transparent;
+        color: #000;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        width: fit-content;
+      }
+
+      .discover-button:hover {
+        background-color: #000;
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .image-section {
+          height: 50vh;
+        }
+
+        .content-section {
+          padding: 3rem 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mody">
+      <main class="container">
+        <section
+          class="image-section"
+          role="img"
+          aria-label="People walking against orange background"
+        ></section>
+        <section class="content-section">
+          <h1 class="title">KEEP WALKING</h1>
+          <p class="description">
+            You could say progress is a part of our DNA, it's why Keep Walking
+            has been our mantra for more than two decades. Today Keep Walking is
+            about helping move us all forward, to a world where everyone is
+            accepted, welcomed and celebrated.
+          </p>
+          <a href="#" class="discover-button">Discover</a>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
