@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Custom Shopify Template</title>
 
     <!-- Fontawesome CDN  -->
     <link
@@ -192,9 +192,122 @@
         align-items: center;
         gap: 5px;
       }
+      /* About company  */
+      .Qunique-container {
+        background-color: #fffff0;
+        text-align: center;
+        padding: 60px 20px 60px 20px;
+      }
+      .Qunique-content {
+        max-width: 1200px;
+        margin: auto;
+      }
+      .Qunique-badge {
+        background: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .Qunique-heading {
+        font-size: 48px;
+        font-weight: bold;
+        margin: 15px 0;
+      }
+      .Qunique-text {
+        max-width: 60%;
+        margin: auto;
+        color: #12151a;
+        font-size: 16px;
+      }
+      .Qunique-buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+      .Qunique-call-btn {
+        background: #800020;
+        color: #ffff;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .Qunique-discover-btn {
+        background: white;
+        padding: 10px 20px;
+        border: 2px solid #aa546a;
+        border-radius: 20px;
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+      }
+      .Qunique-discover-btn:hover {
+        background: #a00000;
+        color: white;
+      }
+      /* Telegram style  */
+      .Tele-container {
+        max-width: 60%;
+        margin: auto;
+        background-color: #ffffff;
+        text-align: center;
+        padding: 40px 20px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+      }
+      .Tele-content {
+        max-width: 600px;
+        margin: auto;
+      }
+      .Tele-heading {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .Tele-subtext {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+      .Tele-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        align-items: center;
+      }
+      .Tele-telegram-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .Tele-learn-btn {
+        background: white;
+        padding: 10px 20px;
+        border: 2px solid #a00000;
+        border-radius: 20px;
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+      }
+      .Tele-learn-btn:hover {
+        background: #a00000;
+        color: white;
+      }
     </style>
   </head>
   <body>
+    <!-- Hero sections start here  -->
     <section class="parent-section">
       <div class="backImage">
         <div class="content-one">
@@ -214,6 +327,7 @@
             <div class="digit-plus">99+</div>
           </div>
           <div class="title-desc">
+            <!-- This two text will be editable from customize side -->
             <h3>3.1m</h3>
             <p>Satisfied Customers</p>
           </div>
@@ -274,5 +388,45 @@
         </div>
       </div>
     </section>
+    <!-- Hero sections end here -->
+    <!-- About company section start here   -->
+    <section class="Qunique-container">
+      <div class="Qunique-content">
+        <span class="Qunique-badge">About Company</span>
+        <h2 class="Qunique-heading">
+          Reinheit, die du sehen kannst Kolloide in Perfektion
+        </h2>
+        <p class="Qunique-text">
+          Our mission is to drive progress and enhance the lives of our
+          customers by delivering superior products and services that exceed
+          expectations.
+        </p>
+        <div class="Qunique-buttons">
+          <button class="Qunique-call-btn">
+            <span><i class="fa-solid fa-phone"></i></span>
+          </button>
+          <a href="#" class="Qunique-discover-btn">Jetzt entdecken ↗</a>
+        </div>
+      </div>
+    </section>
+    <!-- About company section end here -->
+    <!-- Telegram section start here   -->
+    <section class="Tele-container">
+      <div class="Tele-content">
+        <h2 class="Tele-heading">Werde Teil unserer Gemeinschaft</h2>
+        <p class="Tele-subtext">Experience</p>
+        <div class="Tele-buttons">
+          <button class="Tele-telegram-btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+              alt="Telegram"
+              width="30"
+            />
+          </button>
+          <a href="#" class="Tele-learn-btn">Learn More ↗</a>
+        </div>
+      </div>
+    </section>
+    <!-- Telgram section end here -->
   </body>
 </html>
