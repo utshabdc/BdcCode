@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        background-color: black;
+        cursor: none;
+      }
+      .cursor-dot {
+        width: 5px;
+        height: 5px;
+        background-color: white;
+      }
+      .cursor-outline {
+        width: 30px;
+        height: 30px;
+        border: 2px solid hsl(0, 0%, 100%, 0.5);
+      }
+      .cursor-dot,
+      .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 1;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

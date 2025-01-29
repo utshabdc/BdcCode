@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrolling Line Effect</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 300vh; /* To enable scrolling */
+        padding-left: 50px;
+      }
+
+      .line {
+        position: fixed;
+        left: 20px;
+        top: 0;
+        width: 5px;
+        height: 100vh;
+        background: linear-gradient(to bottom, red, blue);
+        transition: background 0.3s;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 200px;
+        margin-left: 50px;
+      }
+
+      .box {
+        width: 300px;
+        height: 200px;
+        background: lightgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="line"></div>
+    <div class="container">
+      <div class="content">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("scroll", function () {
+        let scrollPosition = window.scrollY;
+        let maxScroll = document.body.scrollHeight - window.innerHeight;
+        let percentage = scrollPosition / maxScroll;
+
+        // Change gradient based on scroll position
+        document.querySelector(
+          ".line"
+        ).style.background = `linear-gradient(to bottom, red ${
+          percentage * 100
+        }%, blue)`;
+      });
+    </script>
+  </body>
+</html>
