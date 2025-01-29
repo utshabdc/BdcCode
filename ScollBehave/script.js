@@ -14,3 +14,7 @@ window.addEventListener("mousemove", (e) => {
         topt: `${posY}px`
     }, { duration: 500, fill: "forwards" })
 })
+
+document.getElementById("hello").addEventListener("click", () => {
+    alert("Hello World")
+})
