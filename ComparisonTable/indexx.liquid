@@ -1,0 +1,142 @@
+{% schema %}
+{
+  "name": "Comparison Section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 300,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "label": "Container Width",
+      "default": 1200
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "do_item",
+      "name": "Do Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "do_text",
+          "label": "Do Text",
+          "default": "Example do item"
+        }
+      ]
+    },
+    {
+      "type": "dont_item",
+      "name": "Don't Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "dont_text",
+          "label": "Don't Text",
+          "default": "Example don't item"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Section",
+      "category": "Custom Sections",
+      "blocks": [{ "type": "do_item" }, { "type": "dont_item" }]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .do-dont-section {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+  .do-list, .dont-list {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+  }
+  .do-list h2, .dont-list h2 {
+    text-align: center;
+    padding: 10px;
+  }
+  .do-list ul, .dont-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  .do-list li {
+    padding: 10px;
+    color: green;
+    display: flex;
+    align-items: center;
+  }
+  .dont-list li {
+    padding: 10px;
+    color: red;
+    display: flex;
+    align-items: center;
+  }
+  .icon {
+    margin-right: 10px;
+  }
+</style>
+
+<div class="do-dont-section">
+  <div class="do-list">
+    <h2>Do</h2>
+    <ul>
+      {% for block in section.blocks %}
+        {% if block.type == 'do_item' %}
+          <li><span class="icon">✅</span> {{ block.settings.do_text }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="dont-list">
+    <h2>Don't</h2>
+    <ul>
+      {% for block in section.blocks %}
+        {% if block.type == 'dont_item' %}
+          <li><span class="icon">❌</span> {{ block.settings.dont_text }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
