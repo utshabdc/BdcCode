@@ -1,0 +1,271 @@
+{%- style -%}
+  .faq-section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+  .faq-container {
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: {{ section.settings.left_container_width }}% {{ section.settings.right_container_width }}%;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  .faq-list {
+    width: 100%;
+  }
+  .faq-item {
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    background: white;
+    width: 100%;
+    text-align: left;
+    border: none;
+  }
+  .faq-question:hover {
+    background: #F9FAFB;
+  }
+  .faq-number {
+    color: #6B7280;
+    margin-right: 12px;
+    font-size: 0.875rem;
+  }
+  .faq-toggle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 4px;
+    background: {{ section.settings.toggle_background }};
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .faq-answer.active {
+    padding: 20px;
+    max-height: 500px;
+  }
+  .faq-image {
+    width: 100%;
+    height: auto;
+  }
+  @media screen and (max-width: 768px) {
+    .faq-container {
+      grid-template-columns: 1fr;
+    }
+    .faq-image-container {
+      order: -1;
+    }
+  }
+{%- endstyle -%}
+
+<div class="faq-section">
+  <div class="faq-container">
+    <div class="faq-list">
+      <h2>{{ section.settings.title }}</h2>
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'faq_item' -%}
+            <div class="faq-item" {{ block.shopify_attributes }}>
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span class="flex items-center">
+                  <span class="faq-number">{{ forloop.index | prepend: '0' }}</span>
+                  {{ block.settings.question }}
+                </span>
+                <span class="faq-toggle">
+                  <span class="plus">+</span>
+                  <span class="minus" style="display: none;">−</span>
+                </span>
+              </button>
+              <div class="faq-answer">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+    <div class="faq-image-container">
+      {%- if section.settings.image != blank -%}
+        <img
+          src="{{ section.settings.image | img_url: 'master' }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          class="faq-image"
+          loading="lazy"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+        >
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'faq-image' }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleFAQ(button) {
+    const answer = button.nextElementSibling;
+    const plus = button.querySelector('.plus');
+    const minus = button.querySelector('.minus');
+
+    // Close all other FAQs
+    const allAnswers = document.querySelectorAll('.faq-answer');
+    const allPlus = document.querySelectorAll('.plus');
+    const allMinus = document.querySelectorAll('.minus');
+
+    allAnswers.forEach((item) => {
+      if (item !== answer) {
+        item.classList.remove('active');
+      }
+    });
+
+    allPlus.forEach((item) => {
+      if (item !== plus) {
+        item.style.display = 'block';
+      }
+    });
+
+    allMinus.forEach((item) => {
+      if (item !== minus) {
+        item.style.display = 'none';
+      }
+    });
+
+    // Toggle current FAQ
+    answer.classList.toggle('active');
+    plus.style.display = answer.classList.contains('active') ? 'none' : 'block';
+    minus.style.display = answer.classList.contains('active') ? 'block' : 'none';
+  }
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Section Width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "left_container_width",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "Left Container Width",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "right_container_width",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "Right Container Width",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "toggle_background",
+      "label": "Toggle Button Color",
+      "default": "#8B1D2C"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "FAQ Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Frequently asked question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "blocks": [
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
