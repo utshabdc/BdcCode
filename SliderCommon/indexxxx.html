@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Values Slider</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .aboSlider-section {
+        display: flex;
+        align-items: center;
+        padding: 50px;
+        background-color: #fff;
+      }
+      .aboSlider-container {
+        display: flex;
+
+        max-width: 1200px;
+        width: 100%;
+        gap: 40px;
+      }
+      .aboSlider-text {
+        flex: 1;
+      }
+      .aboSlider-text h2 {
+        font-size: 32px;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+      }
+      .aboSlider-text p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+      }
+      .aboSlider-slider {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+      }
+      .aboSlider-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+      .aboSlider-slide {
+        min-width: 100%;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+      }
+      .aboSlider-slide h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .aboSlider-slide p {
+        font-size: 16px;
+      }
+      .aboSlider-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+      }
+      .aboSlider-indicators span {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        margin: 0 5px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .aboSlider-indicators .active {
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="aboSlider-section">
+      <div class="aboSlider-container">
+        <div class="aboSlider-text">
+          <h2>Our Values</h2>
+          <p>
+            By upholding these values, we ensure that our customers receive
+            exceptional service, reliable solar solutions, and a positive
+            experience that caters to your unique needs.
+          </p>
+        </div>
+        <div class="aboSlider-slider">
+          <div class="aboSlider-wrapper">
+            <div
+              class="aboSlider-slide"
+              style="background-image: url('https://placehold.co/800x800')"
+            >
+              <h3>Disruption</h3>
+              <p>
+                We are determined to revolutionize the way America produces
+                energy. Through innovative products and partnerships, we give
+                our customers the power to embrace a sustainable and independent
+                future.
+              </p>
+            </div>
+            <div
+              class="aboSlider-slide"
+              style="background-image: url('https://placehold.co/800x800')"
+            >
+              <h3>Empathy</h3>
+              <p>
+                Understanding the unique needs and concerns of our customers, we
+                strive to provide personalized solar solutions that meet their
+                energy goals and provide a smooth and supportive transition to
+                solar energy.
+              </p>
+            </div>
+          </div>
+          <div class="aboSlider-indicators">
+            <span class="active" onclick="moveSlide(0)"></span>
+            <span onclick="moveSlide(1)"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let currentIndex = 0;
+      const slides = document.querySelectorAll(".aboSlider-slide");
+      const indicators = document.querySelectorAll(
+        ".aboSlider-indicators span"
+      );
+      const wrapper = document.querySelector(".aboSlider-wrapper");
+
+      function moveSlide(index) {
+        wrapper.style.transform = `translateX(-${index * 100}%)`;
+        indicators[currentIndex].classList.remove("active");
+        indicators[index].classList.add("active");
+        currentIndex = index;
+      }
+
+      function autoSlide() {
+        let nextIndex = (currentIndex + 1) % slides.length;
+        moveSlide(nextIndex);
+      }
+
+      setInterval(autoSlide, 3000);
+    </script>
+  </body>
+</html>
